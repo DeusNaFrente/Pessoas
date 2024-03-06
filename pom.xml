@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.23</version> <!-- Substitua pela versão mais recente -->
+            <version>42.2.23</version>
         </dependency>
 
       
@@ -74,6 +74,14 @@
             <artifactId>primefaces</artifactId>
             <version>8.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.50</version>
+            <scope>provided</scope>
+        </dependency>
+        
     </dependencies>
     
     <build>
@@ -82,9 +90,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib</classpathPrefix>
+                            <mainClass>javax.faces.webapp.FacesServlet</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
     
     
 </project>
