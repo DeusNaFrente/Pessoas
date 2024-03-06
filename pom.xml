@@ -95,7 +95,6 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                            <mainClass>javax.faces.webapp.FacesServlet</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
