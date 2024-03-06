@@ -1,2 +1,3 @@
-web: java -jar -Dserver.port=$PORT cadastro/target/cadastro-1.0.war
+web: java -Dserver.port=$PORT -jar target/cadastro-1.0.war
+
 
