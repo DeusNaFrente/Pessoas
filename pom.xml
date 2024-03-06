@@ -76,11 +76,11 @@
         </dependency>
         
         <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>9.0.50</version>
-            <scope>provided</scope>
-        </dependency>
+         <groupId>org.apache.tomcat.embed</groupId>
+         <artifactId>tomcat-embed-core</artifactId>
+          <scope>provided</scope>
+         </dependency>
+
         
     </dependencies>
     
@@ -95,6 +95,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
+                            <mainClass>javax.faces.webapp.FacesServlet</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
