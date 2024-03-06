@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/template.xhtml"
+                >
+
+    <ui:define name="metadata">
+        <f:metadata></f:metadata>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <h:head>
+            <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/styles.css" />
+
+            <style>
+                .div11 {
+                    display: inline-block;
+                    margin: 4px;
+                    padding: 5px;
+                }
+
+                .col {
+                    text-align: left;
+                    font-size: 12px;
+                }
+
+                .fieldset {
+                    border-width: 2px;
+                    border-color: aliceblue;
+                    border-radius: 10px 20px;
+                    max-height: 100px;
+                    overflow-y: auto;
+                }
+
+                .button-style {
+                    height: 30px;
+                    background-color: whitesmoke;
+                    font-size: 14px;
+                }
+
+                .input-field {
+                    text-align: left;
+                    font-size: 16px;
+                }
+
+                .custom-table {
+                    font-size: 16px;
+                }
+
+                .table-data {
+                    font-size: 14px;
+                }
+
+                .centered-content {
+                    width: 100%;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+
+
+
+
+            </style>
+
+
+
+        </h:head>
+
+        <h:body>
+            <h:panelGroup id="tudo" styleClass="centered-content">
+                <h:form>
+                    <p:commandButton icon="ui-icon-plus" value="Nova pessoa" actionListener="#{pessoaMB.novo()}" update=":tudo" styleClass="button-style" />
+                    <p:commandButton value="Salvar" actionListener="#{pessoaMB.salvar()}" update=":tudo" styleClass="button-style" />
+                    <p:commandButton icon="ui-icon-trash" value="Excluir" actionListener="#{pessoaMB.excluir()}" update=":tudo" styleClass="button-style" />
+                    <br></br><br></br>
+
+                    <fieldset>
+                        <legend>Cadastro de pessoas</legend>
+
+                        <div class="div11 col" id="col1">
+                            <p>Nome:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.nome}" styleClass="input-field" size="30" />
+
+                            <p>Idade:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.idade}" styleClass="input-field" size="30" />
+
+                            <p>Sexo:</p>
+                            <p:selectOneMenu value="#{pessoaMB.pessoa.sexo}" >
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}" />
+                                <f:selectItem itemLabel="Masculino" itemValue="Masculino"  />
+                                <f:selectItem itemLabel="Feminino" itemValue="Feminino"  />
+                                <p:ajax process="@this" />
+                            </p:selectOneMenu>
+
+                            <p>Cidade:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.endereco.cidade}" style="text-align: left"  size="30" />
+
+                            <p>Estado</p>
+                            <p:inputText value="#{pessoaMB.pessoa.endereco.estado}" style="text-align: left"  size="30" />
+
+                            <p>Logradouro:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.endereco.logradouro}" style="text-align: left"  size="30" />
+
+
+                            <p>Número:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.endereco.numero}" style="text-align: left"  size="30" />
+
+
+                            <p>Cep:</p>
+                            <p:inputText value="#{pessoaMB.pessoa.endereco.cep}" style="text-align: left"  size="30" />
+
+
+                        </div>
+
+
+
+                    </fieldset>
+
+                    <br></br>
+                </h:form>
+
+                <h:panelGroup>
+                    <h:form id="frmLista">
+                        <p:dataTable styleClass="custom-table" value="#{pessoaMB.pessoas}" var="c" emptyMessage="Sem retorno!" selectionMode="single" selection="#{pessoaMB.pessoa}" rowKey="#{c.id}">
+                            <p:ajax event="rowSelect" update=":tudo" listener="#{pessoaMB.editar()}" />
+
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{c.nome}" styleClass="table-data" />
+                            </p:column>
+
+                            <p:column headerText="Idade">
+                                <h:outputText value="#{c.idade}" styleClass="table-data" />
+                            </p:column>
+
+
+                            <p:column headerText="Sexo">
+                                <h:outputText value="#{c.sexo}" style="font-size: 12px;"/>
+                            </p:column>
+
+                            <p:column headerText="Endereço">
+                                <h:outputText value="#{c.endereco.logradouro}" style="font-size: 12px;"/>
+                            </p:column>
+
+                            <p:column headerText="Número">
+                                <h:outputText value="#{c.endereco.numero}" style="font-size: 12px;"/>
+                            </p:column>
+
+                            <p:column headerText="Cep">
+                                <h:outputText value="#{c.endereco.cep}" style="font-size: 12px;"/>
+                            </p:column>
+
+                            <p:column headerText="Cidade">
+                                <h:outputText value="#{c.endereco.cidade}" style="font-size: 12px;"/>
+                            </p:column>
+
+                            <p:column headerText="Estado">
+                                <h:outputText value="#{c.endereco.estado}" style="font-size: 12px;"/>
+                            </p:column>
+
+                        </p:dataTable>
+                    </h:form>
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:body>
+    </ui:define>
+</ui:composition>

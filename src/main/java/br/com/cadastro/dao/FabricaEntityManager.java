@@ -3,10 +3,7 @@ package br.com.cadastro.dao;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Nilson
- */
+
 public class FabricaEntityManager {
 
     private static FabricaEntityManager INSTANCE;
