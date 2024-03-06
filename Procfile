@@ -1,1 +1,1 @@
-web: java -jar cadastro/target/cadastro-1.0.war
+web: java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
