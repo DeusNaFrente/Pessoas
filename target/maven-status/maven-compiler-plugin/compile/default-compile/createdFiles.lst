@@ -1,0 +1,12 @@
+br\com\cadastro\conexao\dataBase.class
+br\com\cadastro\dao\PessoaDao.class
+br\com\cadastro\dao\EnderecoDao.class
+br\com\cadastro\dao\UsuarioDao.class
+br\com\cadastro\control\LoginMB.class
+br\com\cadastro\model\Usuario.class
+br\com\cadastro\control\PessoaMB.class
+br\com\cadastro\dao\FabricaEntityManager.class
+br\com\cadastro\dao\DaoImpl.class
+br\com\cadastro\model\Endereco.class
+br\com\cadastro\model\Pessoa.class
+br\com\cadastro\filtro\FiltroLogin.class

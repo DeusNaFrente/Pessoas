@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="cadPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>br.com.cadastro.model.Usuario</class>
+    <class>br.com.cadastro.model.Pessoa</class>
+    <class>br.com.cadastro.model.Endereco</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <!-- Use as informações fornecidas pelo Heroku para configurar a conexão -->
+      <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+      <property name="hibernate.connection.url" value="jdbc:postgresql://ceu9lmqblp8t3q.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d67ojhtlgm4gqv?sslmode=require"/>
+      <property name="hibernate.connection.username" value="u45t16g3q038o9"/>
+      <property name="hibernate.connection.password" value="pe51ad1aa50dd92c59a98f4ff32e3e3e713099af038ecf7c31423f43eb28f533b"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <!-- Restante das configurações -->
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.format_sql" value="false"/>
+      <property name="hibernate.ejb.entitymanager_factory_name" value="br.com.cadastro.dao.FabricaEntityManager"/>
+      <!-- Evita LazyLoadException -->
+      <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+      <!-- Configurações para o pool de conexões -->
+      <property name="c3p0.acquire_increment" value="1"/>
+      <property name="c3p0.iddle_teste_period" value="70"/>
+      <property name="c3p0.max_size" value="6"/>
+      <property name="c3p0.max_statements" value="0"/>
+      <property name="c3p0.min_size" value="1"/>
+      <property name="c3p0.timeout" value="60"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:insert name="metadata" />	
+
+    <h:head>
+
+        <h:outputScript library="js" name="scripts.js"/>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <title>Sistema de Cadastro de Pessoas</title>
+
+    </h:head>
+    <h:body>
+      
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="50" header="Bem vindo ao Cadastro!!"
+                          resizable="false" closable="false" collapsible="false">
+                
+            </p:layoutUnit>
+
+
+
+
+            <p:layoutUnit position="west" size="200" resizable="false"
+                          closable="false" collapsible="false">
+
+                <h:form>
+                    <p:panelMenu>
+                      
+                        <p:submenu label="Cadastros">
+
+                            <p:menuitem value="Pessoas" outcome="/sistema/MenuPessoas.xhtml" style="font-size: 14px" />
+
+                            
+                        </p:submenu>
+
+ 
+
+                        <p:submenu label="Sair">
+                            
+                            <p:menuitem value="Logout" style="font-size: 14px" outcome="/login.xhtml"/>
+                        </p:submenu>
+
+                    </p:panelMenu>
+                    
+             
+                </h:form>
+
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" resizable="false"  closable="false" collapsible="false">
+                <ui:insert name="conteudo"/>
+
+            </p:layoutUnit>
+
+
+
+            <p:layoutUnit position="south" header="Dev by Milton" 
+                          resizable="false" closable="false" collapsible="false" size="100">
+
+            </p:layoutUnit>
+
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
