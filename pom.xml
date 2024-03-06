@@ -82,6 +82,14 @@
             <scope>provided</scope>
         </dependency>
         
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version> <!-- Use a versão adequada ao seu projeto -->
+            <scope>provided</scope>
+        </dependency>
+
+        
     </dependencies>
     
     <build>
@@ -90,15 +98,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib</classpathPrefix>
-                            <mainClass>javax.faces.webapp.FacesServlet</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
         </plugins>
     </build>

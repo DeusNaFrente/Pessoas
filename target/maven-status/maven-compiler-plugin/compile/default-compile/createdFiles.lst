@@ -10,3 +10,4 @@ br\com\cadastro\dao\DaoImpl.class
 br\com\cadastro\model\Endereco.class
 br\com\cadastro\model\Pessoa.class
 br\com\cadastro\filtro\FiltroLogin.class
+.netbeans_automatic_build
